@@ -1,5 +1,5 @@
 export default class auto {
-    constructor(marca,modelo,color,kilometraje)
+    constructor(marca,modelo,color="blanco",kilometraje= 0)
     {
         this.marca = marca;
         this.modelo = modelo;
@@ -12,6 +12,21 @@ export default class auto {
         tiene un kilometraje de ${this.kilometraje} kms y esta ${this.estado}`);
     }
     encender(){
-
+        this.estado= "Encendido";
+        this.mostrarEstado();
+    }
+    apagar(){
+        this.estado= "Apagado";
+        this.mostrarEstado();
+    }
+    avanzar(velocidad, tiempo){
+        if (this.estado === "Apagado"){
+            console.log("El auto no puede avanzar");
+        } 
+        else{
+            let distancia = velocidad * tiempo ;
+            this.kilometraje = this.kilometraje + distancia ;
+        }
+        this.mostrarEstado();
     }
 }
